@@ -1,0 +1,297 @@
+/* Global Styles */
+html, body {
+  margin: 0;
+  padding: 0;
+  scroll-behavior: smooth;
+  font-family: 'Helvetica Neue', Arial, sans-serif;
+  line-height: 1.6;
+  color: #333;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+/* 3-Tone Color Scheme */
+:root {
+  --primary-color: #003262; /* UC Berkeley Blue */
+  --secondary-color: #FDB515; /* California Gold */
+  --tertiary-color: #3B7EA1; /* Sky Blue */
+  --background-light: #f8f9fa;
+  --text-dark: #212529;
+}
+
+/* Portfolio Container */
+.portfolio-container {
+  position: relative;
+}
+
+/* Slide Styles */
+.slide {
+  height: 100vh;
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  position: relative;
+  scroll-snap-align: start;
+}
+
+.slide-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+/* Individual Slide Themes */
+.landing {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.landing h1 {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.landing h2 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: var(--secondary-color);
+}
+
+.subtitle {
+  font-size: 1.5rem;
+  margin-bottom: 2rem;
+  opacity: 0.9;
+}
+
+.projects {
+  background-color: var(--background-light);
+  color: var(--text-dark);
+}
+
+.skills {
+  background-color: white;
+  color: var(--text-dark);
+}
+
+.contact {
+  background-color: var(--tertiary-color);
+  color: white;
+}
+
+/* Project Grid */
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.project-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
+  text-align: left;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.tech-tag {
+  display: inline-block;
+  background-color: var(--secondary-color);
+  color: var(--text-dark);
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  margin-right: 0.5rem;
+  margin-top: 0.5rem;
+}
+
+/* Skills Section */
+.skills-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  margin-top: 3rem;
+}
+
+.skills-column {
+  flex: 1;
+  min-width: 250px;
+  margin: 1rem;
+  text-align: left;
+}
+
+.skills-column h3 {
+  color: var(--primary-color);
+  margin-bottom: 1.5rem;
+  font-size: 1.5rem;
+}
+
+.skills-column ul {
+  list-style-type: none;
+  padding: 0;
+}
+
+.skills-column li {
+  margin-bottom: 1rem;
+  position: relative;
+  padding-left: 1.5rem;
+}
+
+.skills-column li:before {
+  content: "•";
+  color: var(--secondary-color);
+  font-size: 1.5rem;
+  position: absolute;
+  left: 0;
+  top: -0.2rem;
+}
+
+/* Contact Section */
+.contact-info {
+  max-width: 600px;
+  margin: 0 auto;
+  text-align: left;
+  font-size: 1.2rem;
+}
+
+.contact-info a {
+  color: white;
+  text-decoration: none;
+  border-bottom: 2px solid var(--secondary-color);
+  transition: all 0.3s ease;
+}
+
+.contact-info a:hover {
+  color: var(--secondary-color);
+  border-bottom-color: white;
+}
+
+.berkeley-logo {
+  margin-top: 3rem;
+}
+
+.berkeley-logo img {
+  height: 100px;
+  opacity: 0.8;
+}
+
+/* Navigation Dots */
+.nav-dots {
+  position: fixed;
+  right: 2rem;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 100;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.nav-dot {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: 2px solid white;
+  background: transparent;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.nav-dot.active {
+  background: white;
+  transform: scale(1.2);
+}
+
+.landing .nav-dot {
+  border-color: white;
+}
+
+.landing .nav-dot.active {
+  background: white;
+}
+
+.projects .nav-dot,
+.skills .nav-dot {
+  border-color: var(--primary-color);
+}
+
+.projects .nav-dot.active,
+.skills .nav-dot.active {
+  background: var(--primary-color);
+}
+
+.contact .nav-dot {
+  border-color: white;
+}
+
+.contact .nav-dot.active {
+  background: white;
+}
+
+/* Scroll Indicator */
+.scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  cursor: pointer;
+  animation: bounce 2s infinite;
+}
+
+.scroll-indicator span {
+  font-size: 2rem;
+  color: white;
+}
+
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0) translateX(-50%);
+  }
+  40% {
+    transform: translateY(-20px) translateX(-50%);
+  }
+  60% {
+    transform: translateY(-10px) translateX(-50%);
+  }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .slide-content {
+    padding: 1rem;
+  }
+  
+  .landing h1 {
+    font-size: 2.5rem;
+  }
+  
+  .landing h2 {
+    font-size: 1.8rem;
+  }
+  
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .skills-container {
+    flex-direction: column;
+  }
+  
+  .nav-dots {
+    right: 1rem;
+  }
+}
+
+/* Add UC Berkeley font if desired */
+/* @import url('https://fonts.googleapis.com/css2?family=Source+Sans+Pro:wght@300;400;600;700&display=swap'); */
